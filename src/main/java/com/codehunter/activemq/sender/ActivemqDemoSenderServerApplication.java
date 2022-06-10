@@ -32,27 +32,34 @@ public class ActivemqDemoSenderServerApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        log.info("Spring Boot Embedded ActiveMQ Configuration Example");
-//
-//        for (int i = 0; i < 5; i++) {
+        log.info("Spring Boot Embedded ActiveMQ Configuration Example");
+
+        for (int i = 0; i < 7; i++) {
 //            Order myMessage = new Order(i + " - Sending JMS Message using Embedded activeMQ", new Date());
 //            orderSender.send(myMessage);
-//        }
-//
-//        log.info("Waiting for all ActiveMQ JMS Messages to be consumed");
+//          String data = checkingAccountService.getData();
+//          System.out.println("data receive" + data);
+        }
+
+//        String data = checkingAccountService.getData();
+//        System.out.println("data receive" + data);
+        log.info("Waiting for all ActiveMQ JMS Messages to be consumed");
 
 //        checkingAccountService.cancelAccount(999L);
-        Thread newThread = new Thread(() -> {
-            log.info("send long processing started ");
-            checkingAccountService.longProcessing();
-            log.info("send long processing done");
-        });
-        newThread.start();
-        TimeUnit.SECONDS.sleep(1);
-        LongStream.range(1,6).forEach(i ->asyncServiceCall(i));
 
-        TimeUnit.SECONDS.sleep(30);
-        System.exit(-1);
+//        Thread newThread = new Thread(() -> {
+//            log.info("send long processing started ");
+//            checkingAccountService.longProcessing();
+//            log.info("send long processing done");
+//        });
+//        newThread.start();
+//        TimeUnit.SECONDS.sleep(1);
+//        LongStream.range(1,5).forEach(i ->asyncServiceCall(i));
+//
+//        TimeUnit.SECONDS.sleep(10);
+//        LongStream.range(10,12).forEach(i ->asyncServiceCall(i));
+//        TimeUnit.SECONDS.sleep(30);
+//        System.exit(-1);
     }
 
     private void asyncServiceCall(long value) {
